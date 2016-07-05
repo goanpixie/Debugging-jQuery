@@ -4,29 +4,33 @@
 	<link rel="stylesheet" type="text/css" href="debugging_jquery.css">
 	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script type="text/javascript">
-	
-			$('p, h3, li').hoverfunction(){
-				$(this).css('color', 'white');
-			}, function(){
-				$(this).css('color', 'black');
-			});
+	        $(document).ready(function(){//[FIX][PS] Ådded document().ready(function(){}-for execution on page load)
+	          
+	           $('p, h3, li').hover(function(){ //[FIX][PS] Ådded missing parentesis
+	           	$(this).css('color', 'white');   
+	           }, function(){
+	           	$(this).css('color', 'black');
+	           });
 
-			$('a').click(function(){
-				alert("we don't actually serve pizza...");
-			});
 
-			$('img').click(function(){
-				$(this).slideUp();
-			);
+	           $('a').click(function(){
+	           	alert("we don't actually serve pizza...");
+	           });
 
-			$('h5').click(function(){
-				$('img').slide Down();
-			});
+	           $('img').click(function(){
+	           	$(this).slideUp();
+	           }); // [FIX][PS] Function was not closed properly
 
-			$('button').click(function(){
-				var result = $('input:checked').value()  
-				alert("Thank you for your input, we like " + result + " too!");
-			});	
+	           $('h5').click(function(){
+	           	$('img').slideDown();//[FIX][PS] SlideDown() is one word
+	           });
+
+	           $('button').click(function(){
+	           	var result = $('input:checked').val() ; //[FIX][PS]the function name is val()
+	           	alert("Thank you for your input, we like " + result + " too!");
+	           });
+	        })
+				
 
 	</script>
 </head>
